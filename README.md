@@ -5,7 +5,7 @@ Research project for the Freshman Research Initiative's Autonomous Robots stream
 This project uses ROS Indigo and Arduino. Along with ROS, you will need to install:
 
 ## Build
-Setup your computer for the Arduino component: https://github.com/arduino/Arduino/wiki/Building-Arduino
+Set up your computer for the Arduino component: https://github.com/arduino/Arduino/wiki/Building-Arduino
 
  
 
