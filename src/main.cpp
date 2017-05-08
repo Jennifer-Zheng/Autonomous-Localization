@@ -35,6 +35,7 @@ int main(int argc, char **argv) {
   ros::NodeHandle n;
 
   actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> ac("move_base",true);
+  ac.waitForServer();
  
   
   
@@ -53,9 +54,9 @@ int main(int argc, char **argv) {
     
     //set relative x, y, and angle
     goal.target_pose.pose.position.x = x;
-    goal.target_pose.pose.position.y = y;
+    goal.target_pose.pose.position.y = 0.0;
     goal.target_pose.pose.position.z = 0.0;
-    goal.target_pose.pose.orientation = tf::createQuaternionMsgFromYaw(yaw);
+    goal.target_pose.pose.orientation = tf::createQuaternionMsgFromYaw(1.2);
 
 	//send the goal
     ac.sendGoal(goal);
