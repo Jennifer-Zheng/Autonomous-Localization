@@ -1,29 +1,20 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(rosautolocalize)
+project(auto_localize)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
   rospy
+  roscpp
   std_msgs
-  geometry_msgs
-  message_generation
-  cv_bridge
-  image_transport
-  pcl_ros
-  pcl_conversions
-  sensor_msgs
+  move_base_msgs
   actionlib
   actionlib_msgs
-  move_base_msgs
-  tf
 )
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
-
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
@@ -79,7 +70,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs
+#   move_base_msgs#   std_msgs
 # )
 
 ################################################
@@ -113,8 +104,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES mk35362_homework5
-#  CATKIN_DEPENDS message_generation message_runtime roscpp rospy std_msgs turtlesim
+#  LIBRARIES auto_localize
+#  CATKIN_DEPENDS move_base_msgs ropy roscpp std_msgs
 #  DEPENDS system_lib
 )
 
@@ -130,36 +121,26 @@ include_directories(
 )
 
 ## Declare a C++ library
-# add_library(mk35362_homework5
-#   src/${PROJECT_NAME}/mk35362_homework5.cpp
+# add_library(auto_localize
+#   src/${PROJECT_NAME}/auto_localize.cpp
 # )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(mk35362_homework5 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(auto_localize ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-
-#add_executable(move_base_client_map src/move_base_client_map.cpp)
+# add_executable(auto_localize_node src/auto_localize_node.cpp)
 add_executable(main src/main.cpp)
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(mk35362_homework5_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(main ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-#target_link_libraries(mk35362_homework5_node
-#   ${catkin_LIBRARIES}
-# )
 target_link_libraries(main
-   ${catkin_LIBRARIES}
- )
- 
-#target_link_libraries(move_base_client_map
- #  ${catkin_LIBRARIES}
-# )
-
-
+  ${catkin_LIBRARIES}
+)
 
 #############
 ## Install ##
@@ -176,7 +157,7 @@ target_link_libraries(main
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS mk35362_homework5 mk35362_homework5_node
+# install(TARGETS auto_localize auto_localize_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -201,7 +182,7 @@ target_link_libraries(main
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_mk35362_homework5.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_auto_localize.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
