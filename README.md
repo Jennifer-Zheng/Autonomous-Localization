@@ -8,7 +8,7 @@ This project uses ROS Indigo and the Building-Wide Intelligence Project packages
 1) ensure amcl.launch file has min particles = 10,000 and max particles = 40,000  
 $ roscd segbot_navigation  
 $ geany launch/amcl.launch  
-2) compile
+2) compile  
 $ catkin_make --pkg=auto_localize  
 3) run  
 $ rosrun auto_localize localize  
