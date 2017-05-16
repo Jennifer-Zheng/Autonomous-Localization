@@ -13,6 +13,8 @@ $ catin_make --pkg=auto_localize
 3) run
 $ rosrun auto_localize localize
 
+## Video
+https://www.youtube.com/watch?v=gQGCWbj2h5I&feature=youtu.be 
  
 
 
